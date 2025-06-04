@@ -4,10 +4,10 @@
 set  -eu
 
 # login to your docker hub account
-cat ~/my_password.txt | sudo docker login --username swanchez04 --password-stdin
+docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
 
 # give image a new name with docker tag command
-sudo docker tag techmax swanchez04/techmax-swy
+docker tag $IMAGE_TAG $DOCKER_HUB_USERNAME/$DOCKER_HUB_REPO_NAME
 
 # push image to docker hub
-sudo docker push swanchez04/techmax-swy
+docker push $DOCKER_HUB_USERNAME/$DOCKER_HUB_REPO_NAME
