@@ -9,7 +9,7 @@ set  -eu
 # sudo systemctl enable docker
 
 # build docker image
-docker build -f $IMAGE_TAG/Dockerfile -t $IMAGE_TAG .
+docker build -f techmax/Dockerfile -t $IMAGE_TAG .
 
 
 # sudo docker run -dp 80:80 swanchez04/techmax-swy
