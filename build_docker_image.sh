@@ -3,12 +3,10 @@
 # fail on any error
 set  -eu
 
-# sudo yum update -y
-# sudo amazon-linux-extras install docker -y
-# sudo service docker start
-# sudo systemctl enable docker
-
 FULL_IMAGE="$DOCKER_HUB_USERNAME/$DOCKER_HUB_REPO_NAME:$IMAGE_TAG"
+
+docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+
 
 # build docker image
 docker build -f techmax/Dockerfile -t "$FULL_IMAGE" techmax
