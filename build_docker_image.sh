@@ -1,7 +1,4 @@
 #!/bin/bash
-FULL_IMAGE="$REPO_NAME:$IMAGE_TAG"
-
-docker push "$FULL_IMAGE"
 
 # fail on any error
 set  -eu
@@ -10,6 +7,8 @@ set  -eu
 # sudo amazon-linux-extras install docker -y
 # sudo service docker start
 # sudo systemctl enable docker
+
+FULL_IMAGE="$REPO_NAME:$IMAGE_TAG"
 
 # build docker image
 docker build -f techmax/Dockerfile -t "$FULL_IMAGE" techmax
