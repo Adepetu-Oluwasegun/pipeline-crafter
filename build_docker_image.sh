@@ -8,7 +8,7 @@ set  -eu
 # sudo service docker start
 # sudo systemctl enable docker
 
-FULL_IMAGE="$REPO_NAME:$IMAGE_TAG"
+FULL_IMAGE="$DOCKER_HUB_REPO_NAME:$IMAGE_TAG"
 
 # build docker image
 docker build -f techmax/Dockerfile -t "$FULL_IMAGE" techmax
