@@ -5,11 +5,12 @@ phases:
     runtime-versions:
       python: 3.x
 
-pre_build:
-  commands:
-    - chmod +x build_docker_image.sh push_image.sh
-    - ./build_docker_image.sh 
+  pre_build:
+    commands:
+      - chmod +x build_docker_image.sh push_image.sh
+      - ./build_docker_image.sh
 
-build:
-  commands:
-    - ./push_image.sh
+  build:
+    commands:
+      - ./push_image.sh
+
