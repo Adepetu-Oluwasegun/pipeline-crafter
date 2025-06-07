@@ -1,49 +1,116 @@
 # pipeline-crafter
 
-# CI/CD Pipeline: Docker Image Build & Push to Docker Hub
+---
 
-This project sets up a CI/CD pipeline using AWS CodeBuild to automatically build and push a Docker image to Docker Hub on each commit to the main branch.
+This project demonstrates how to implement a CI/CD pipeline using **AWS CodeBuild** to automatically build a Docker image and push it to **Docker Hub**. The pipeline is triggered on **GitHub push and pull request merge events**.
 
-## 🛠️ Technologies Used
+---
 
-- Docker
-- GitHub
-- AWS CodeBuild
-- Docker Hub
-- Amazon Linux 2
+## Features
 
+- GitHub integration with webhook triggers
+- Docker image build via Dockerfile
+- Image push to Docker Hub using CodeBuild
+- Secure use of environment variables for Docker credentials
+- Bash script for local testing and manual builds
+- CI/CD steps defined using `buildspec.yml`
 
-## 🔧 Setup Instructions
+---
 
-1. **Clone this repository**
-   ```bash
-   git clone https://github.com/your-username/repo-name.git
+## Technologies Used
+
+- **AWS CodeBuild**
+- **Docker**
+- **Docker Hub**
+- **AWS CLI**
+- **Bash**
+- **GitHub**
+
+---
+
+##  Setup Instructions
+
+### 1. Create and Clone GitHub Repository
+
+```bash
+git clone https://github.com/your-username/dockerhub-codebuild-cicd.git
+cd dockerhub-codebuild-cicd
 ````
 
-2. **Create a DockerHub Repository**
+---
 
-3. **Set up AWS CodeBuild**
+### 2. Create Docker Hub Repository
 
-   * Connect to GitHub with a Personal Access Token.
-   * Use environment variables `DOCKERHUB_USERNAME`, `DOCKERHUB_PASSWORD`, `DOCKER_HUB_REPO_NAME`.
-   * Make sure to give the build project access to Docker.
+* Go to [Docker Hub](https://hub.docker.com/)
+* Create a new public repository (e.g., `your-dockerhub-username/ci-cd-image`)
 
-4. **On Every Commit**
+---
 
-   * CodeBuild will:
+### 3. Write Dockerfile
 
-     * Build the Docker image using the Dockerfile.
-     * Push the image to DockerHub.
+Create a `Dockerfile` in the root directory:
 
-##  Security Notes
 
-* Use CodeBuild’s secure environment variable storage.
-* Never hard-code secrets in files.
+### 4. Write Bash Script
 
-##  Output
+Create a file `dockerimage__build and docker_push.sh`:
 
-A Docker image pushed to:
+```
+
+Make it executable:
+
+```bash
+chmod +x docker_image_build docker_push.sh
+```
+
+---
+
+### 5. Create `buildspec.yml`
+
+In the project root or a `CICD/` directory:
+
+
+---
+
+### 6. Set Environment Variables in CodeBuild
+
+In your CodeBuild project, add the following environment variables:
+
+| Variable              | Description                         |
+| --------------------  | ----------------------------------- |
+| `DOCKER_HUB_USERNAME` | Your Docker Hub username            |
+| `DOCKER_HUB_PASSWORD` | Docker Hub password or access token |
+| `DOCKER_HUB_REPO_NAME`| Docker hub repository name          |
+
+> 🔐 Use secure values to avoid exposing secrets.
+
+---
+
+### 7. Create CodeBuild Project
+
+* Source: GitHub (via AWS Connections)
+* Buildspec file: `buildspec.yml` 
+* Enable: **“Rebuild every time a code change is pushed to this repository”**
+
+---
+
+### 8. Set Up Webhook Event Filters
+
+In CodeBuild, configure webhook triggers for:
+
+* **Push to main**
+* **Pull request merges**
+
+---
+
+## ✅ Output
+
+After a successful build, your Docker image will be available on Docker Hub:
 
 ```bash
 docker pull your-dockerhub-username/ci-cd-image:latest
 ```
+
+---
+
+
