@@ -25,7 +25,7 @@ This project sets up a CI/CD pipeline using AWS CodeBuild to automatically build
 3. **Set up AWS CodeBuild**
 
    * Connect to GitHub with a Personal Access Token.
-   * Use environment variables `DOCKERHUB_USER`, `DOCKERHUB_PASSWORD`, ``.
+   * Use environment variables `DOCKERHUB_USERNAME`, `DOCKERHUB_PASSWORD`, `DOCKER_HUB_REPO_NAME`.
    * Make sure to give the build project access to Docker.
 
 4. **On Every Commit**
@@ -40,7 +40,7 @@ This project sets up a CI/CD pipeline using AWS CodeBuild to automatically build
 * Use CodeBuild’s secure environment variable storage.
 * Never hard-code secrets in files.
 
-## 📤 Output
+##  Output
 
 A Docker image pushed to:
 
