@@ -12,7 +12,7 @@ This project demonstrates how to implement a CI/CD pipeline using **AWS CodeBuil
 - Docker image build via Dockerfile
 - Image push to Docker Hub using CodeBuild
 - Secure use of environment variables for Docker credentials
-- Bash script for local testing and manual builds
+- Bash script for building docker image and script to push to dockerhub
 - CI/CD steps defined using `buildspec.yml`
 
 ---
