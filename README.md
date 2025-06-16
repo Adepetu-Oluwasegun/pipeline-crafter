@@ -33,8 +33,8 @@ This project demonstrates how to implement a CI/CD pipeline using **AWS CodeBuil
 ### 1. Create and Clone GitHub Repository
 
 ```bash
-git clone https://github.com/your-username/dockerhub-codebuild-cicd.git
-cd dockerhub-codebuild-cicd
+git clone https://github.com/your-username/pipeline-crafter.git
+cd pipeline-crafter
 ````
 
 ---
@@ -42,7 +42,7 @@ cd dockerhub-codebuild-cicd
 ### 2. Create Docker Hub Repository
 
 * Go to [Docker Hub](https://hub.docker.com/)
-* Create a new public repository (e.g., `your-dockerhub-username/ci-cd-image`)
+* Create a new public repository (e.g., `your-dockerhub-username/techmax`)
 
 ---
 
@@ -53,7 +53,7 @@ Create a `Dockerfile` in the root directory:
 
 ### 4. Write Bash Script
 
-Create a file `dockerimage__build and docker_push.sh`:
+Create a file `build_docker_image and push_image.sh`:
 
 ```
 
@@ -67,7 +67,7 @@ chmod +x docker_image_build docker_push.sh
 
 ### 5. Create `buildspec.yml`
 
-In the project root or a `CICD/` directory:
+In the project root or a `pipeline_crafter` directory:
 
 
 ---

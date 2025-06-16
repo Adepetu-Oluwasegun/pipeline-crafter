@@ -12,4 +12,3 @@ docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
 docker build -f jupiter/Dockerfile -t "$FULL_IMAGE" techmax
 
 
-# sudo docker run -dp 80:80 swanchez04/techmax-swy
